@@ -1176,6 +1176,9 @@ const util = {
                 if(data[0].grp_id=="1"){//business dev
                     location.href = './sales.html'
                 
+                }else{
+                    location.href = './admin.html'
+                    
                 }
                 
                 /* ======== END ADEP-HOMES=======*/

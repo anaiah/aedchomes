@@ -51,9 +51,6 @@
 
                     console.log('data saved....',data.info)
 
-                    sales.socket.emit('sendToMgr', data)
-                    console.log( '===EMIT sendToMgr===')
-
                 }else{
                     util.speak(data.voice)
                     
@@ -276,6 +273,7 @@
             }
         },
 
+        //=====aedc
         getSite:async(nSite)=>{
 
             sales.myToast('Getting Site',2000)
@@ -289,10 +287,11 @@
 
             document.getElementById('h6-txt').innerHTML=`${data[1].project_site}`
 
-            console.log(`get site ${nSite}`)
+            console.log(`get site ${nSite}, emittting socket....`)
 
             //session storage
             sessionStorage.setItem('project_site',`${nSite}`)
+
         },
 
         scrollToTop:()=> {
@@ -302,6 +301,7 @@
             });
         },
 
+        //===aedc
         newEntry:(xID, cName, cPhone, cMethod)=>{
             console.log('house id', xID)
             
@@ -320,7 +320,7 @@
         },
 
                     
-        //new site posting 
+        //aedc new site posting 
         newHousePost:async function(frm,modal,url="",xdata={}){
                       
             await fetch(url,{
@@ -360,12 +360,10 @@
                     console.log('data saved....')
 
                     sales.getmtdPerformance() // update chart
-                    //util.speak('Loading Chart')
-                    //util.scrollsTo('#myChart')
-
-                    // sales.socket.emit('sendToMgr', data)
-                    // console.log( '===EMIT sendToMgr===')
-
+                    
+                    //=====emit to socket
+                    sales.socket.emit('sendToMgr', data)
+                    console.log( '===EMIT sendToMgr===')
                 }else{
                     util.speak(data.voice)
                     
@@ -380,9 +378,11 @@
         
         },
 
-        //===for monthly chart
+        //===aedc for monthly chart
         getmtdPerformance: async()=>{
+
             util.speak('Loading chart...!')
+            
             await fetch(`${myIp}/aedc/mtdperformance`,{
                 cache:'reload'
             })
@@ -607,34 +607,34 @@
 
     }//===end obj
 
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});    
-   
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('=======DOM CONTENT LOADED=====')
-    sales.init()
-    sales.listeners()
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('=======DOM CONTENT LOADED=====')
+        sales.init()
+        sales.listeners()
 
-    /* TAKE OUT MUNA KEYBOARD DETECT
+        /* TAKE OUT MUNA KEYBOARD DETECT
 
-     ///disable  rightclck
-    document.onkeydown = function(e) {
-    if(e.keyCode == 123) {  // F12
-        return false;
-    }
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // Ctrl+Shift+I
-        return false;
-    }
-    if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {  // Ctrl+Shift+J
-        return false;
-    }
-    if(e.ctrlKey && e.keyCode == 85) { // Ctrl+U
-        return false;
-    }
-    }
-    */
-})
+        ///disable  rightclck
+        document.onkeydown = function(e) {
+        if(e.keyCode == 123) {  // F12
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // Ctrl+Shift+I
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 74) {  // Ctrl+Shift+J
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode == 85) { // Ctrl+U
+            return false;
+        }
+        }
+        */
+    })
    
    
     
