@@ -63,7 +63,7 @@ var aedcData = new Tabulator("#gridPrint", {
             field:'status',
             formatter:"html", 
             headerSort:false,
-            width:80,
+            width:100,
             headerHozAlign:"center", 
             resizable:false,
             formatter:(cell)=>{
@@ -79,14 +79,14 @@ var aedcData = new Tabulator("#gridPrint", {
         {
             title:'Customer',
             field:'customer',
-            width:120,
+            width:130,
             headerHozAlign:"center", 
             resizable:true
         },
         {
             title:'Date',
             field: 'update_date',
-            width:90,
+            width:110,
             headerHozAlign:"center", 
             resizable:true
         },
