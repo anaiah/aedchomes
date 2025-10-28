@@ -302,7 +302,7 @@ const  admin = {
         admin.socket.on('updatechart', (data) => {
             util.speak('Updating Chart!...')
             admin.getChart()
-            
+
         })
         //==============================================END  SOCKET ==========================//
         
@@ -329,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
     admin.init()
     admin.listeners()
 
-    /* TAKE OUT MUNA KEYBOARD DETECT
+    /* TAKE OUT MUNA KEYBOARD DETECT */
 
     ///disable  rightclck
     document.onkeydown = function(e) {
@@ -346,5 +346,5 @@ document.addEventListener('DOMContentLoaded', function() {
         return false;
     }
     }
-    */
+    
 })
