@@ -1094,9 +1094,22 @@ const util = {
                     xmsg = "<div><i class='fa fa-spinner fa-pulse' ></i>  Searching Database please wait...</div>"
                     util.alertMsg( xmsg,'danger','loginPlaceHolder')
 
-                    util.loginPost(frm ,frmModal,`${myIp}/loginpost/${objfrm.uid}/${objfrm.pwd}`)
+                    util.loginPost(frm ,frmModal,`${myIp}/aedc/loginpost/${objfrm.uid}/${objfrm.pwd}`)
                 break
 				
+                case "#dataEntryForm":
+                    const xbtn = document.getElementById('savedata-btn')
+                    xbtn.innerHTML = 'Saving... <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+                    xbtn.disabled = true;
+
+                    console.log( objfrm)
+
+                    const salesAgent =  JSON.parse( db.getItem('profile'))
+        
+                    sales.newHousePost(frm,frmModal,`${myIp}/aedc/newhousepost/${salesAgent.id}`,objfrm )
+        
+                break;
+
 				case "#projectForm":
                     const btn = document.getElementById('save-btn')
                     btn.innerHTML = 'Saving... <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
@@ -1161,7 +1174,7 @@ const util = {
 
                 /* ====== this AEDP-HOME =======*/
                 if(data[0].grp_id=="1"){//business dev
-                    location.href = './base.html'
+                    location.href = './sales.html'
                 
                 }
                 

@@ -2,6 +2,7 @@ body {
 background-color: #fff;
 margin: 0;
 padding: 0;
+color:#5a4c19;
 }
 
 .navbar {
@@ -19,17 +20,26 @@ top: 0;
 left: -250px;
 width: 250px;
 height: 100%;
-background: #333;
-background-image: url('../images/backgrounds/win.jpg');
-color: white;
+border:1px solid #c9c9c9;
+    
+background: #ffffff;
+/* background: rgba(255, 255, 255, 0.7);  White background with 70% opacity */
+/*background-image: url('http://www.aedc-homes.com/images/buyersguide1.png');*/
+color:#5a4c19;
+
 transition: left 0.3s;
 padding-top: 60px;
 z-index: 1020;
 overflow: auto;
+ /*opacity: 0.7; Adjust the value between 0 (fully transparent) and 1 (fully opaque) */
+  background-size: cover; /* Ensure the background covers the area */
+  background-repeat: no-repeat; /* Prevent repeating */
+
 }
 
 #sidebar a {
-color: white;
+color:#5a4c19;
+
 padding: 10px;
 display: block;
 cursor: pointer;
@@ -128,19 +138,21 @@ background: transparent;       /* Make background transparent */
 }
 #sidebarnav li {
 padding-left: 20px;
-text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+/*text-shadow: 2px 2px 4px rgba(0,0,0,0.8); */
 }
 
 #sidebarnav a {
 display: flex;                 /* align icon and text if any */
 align-items: center;
 padding: 12px 20px;
-color: #fff;                   /* White font color */
+color:#5a4c19;
+
+/*color:#7a3016;*/                /* White font color */
 text-decoration: none;          /* No underline */
 background: transparent;         /* No background on links */
 box-shadow: none;                /* Remove hover shadow if any */
 transition: none;               /* Disable hover transition effects */
-text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+/*text-shadow: 2px 2px 4px rgba(0,0,0,0.8); */
 }
 
 .menu-section-label  {
